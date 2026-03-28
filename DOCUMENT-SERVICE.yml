@@ -8,7 +8,7 @@ spring:
     url: jdbc:mysql://${DB_HOST:localhost}:3306/documentdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
 
 file:
-  upload-dir: uploads/
+  upload-dir: ${FILE_UPLOAD_DIR:uploads/}
 
 springdoc:
   api-docs:
