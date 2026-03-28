@@ -1,0 +1,36 @@
+server:
+  port: ${SERVER_PORT:9000}
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    urls-primary-name: AUTH-SERVICE
+    urls:
+      - name: AUTH-SERVICE
+        url: /gateway/auth/v3/api-docs
+      - name: APPLICATION-SERVICE
+        url: /gateway/applications/v3/api-docs
+      - name: DOCUMENT-SERVICE
+        url: /gateway/documents/v3/api-docs
+      - name: ADMIN-SERVICE
+        url: /gateway/admin/v3/api-docs

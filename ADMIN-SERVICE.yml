@@ -1,0 +1,14 @@
+server:
+  port: ${SERVER_PORT:8085}
+
+spring:
+  application:
+    name: ADMIN-SERVICE
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/admindb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+
+springdoc:
+  api-docs:
+    path: /admin/v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

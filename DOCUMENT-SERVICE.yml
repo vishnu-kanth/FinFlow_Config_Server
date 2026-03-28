@@ -1,0 +1,17 @@
+server:
+  port: ${SERVER_PORT:8083}
+
+spring:
+  application:
+    name: DOCUMENT-SERVICE
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/documentdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+
+file:
+  upload-dir: uploads/
+
+springdoc:
+  api-docs:
+    path: /documents/v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
